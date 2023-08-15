@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-src-d8ac5a19-913b-451b-bb99-6024bb183c29</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
