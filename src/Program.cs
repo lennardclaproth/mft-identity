@@ -5,10 +5,15 @@ using LClaproth.MyFinancialTracker.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+
+string AssemblyName = Assembly.GetEntryAssembly()!.GetName().Name!.ToLower();
+string MachineName = Environment.MachineName.ToLower();
 
 var connectionString = builder.Configuration.GetValue<string>("IdentityDb:ConnectionString") ?? throw new InvalidOperationException("Connection string 'IdentityDb:ConnectionString' not found.");
 builder.Services.AddDbContext<IdentityContext>(options =>
