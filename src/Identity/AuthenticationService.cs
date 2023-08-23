@@ -68,8 +68,9 @@ public class AuthenticationService<T> where T : IdentityUser
         var expires = DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:ExpiresIn"]));
 
         var subject = new ClaimsIdentity(new[]{
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email)
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(JwtRegisteredClaimNames.Name, user.UserName)
         });
 
         var tokenDescriptor = new SecurityTokenDescriptor {

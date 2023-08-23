@@ -11,11 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
-string AssemblyName = Assembly.GetEntryAssembly()!.GetName().Name!.ToLower();
-string MachineName = Environment.MachineName.ToLower();
-
+var ApplicationName = builder.Configuration.GetValue<string>("ApplicationInfo:ApplicationName") ?? throw new InvalidOperationException("Application name 'ApplicationInfo:ApplicationName' not found.");
 var connectionString = builder.Configuration.GetValue<string>("IdentityDb:ConnectionString") ?? throw new InvalidOperationException("Connection string 'IdentityDb:ConnectionString' not found.");
+
 builder.Services.AddDbContext<IdentityContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
